@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>波動鑑定士 | 無料・簡易波動チェック</title>
+<meta name="description" content="あなたの人生には、大きな波と現在の波があります。2本の波を重ねて、今のあなたの現在地とタイミングを読み解く「波動鑑定士」。まずは無料の簡易波動チェックから。">
+<meta property="og:title" content="波動鑑定士 | あなたの「今」を2本の波から読み解く">
+<meta property="og:description" content="無料の簡易波動チェックはこちら。生年月日と気になっているテーマを入力するだけ。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">🔮 波動鑑定士</p>
+    <h1>あなたの「今」を<br>2本の波から読み解く</h1>
+    <p class="lead">大波動 × 現在波動 ─ 今のあなたの現在地を鑑定</p>
+    <a class="btn btn-primary" href="#check">無料波動チェックはこちら👇</a>
+  </div>
+  <svg class="wave-divider" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,100 480,0 720,40 C960,80 1200,20 1440,60 L1440,100 L0,100 Z"></path>
+  </svg>
+</header>
+
+<main>
+  <section class="intro">
+    <p>
+      人生には、長い時間をかけて流れる「人生の大きな波」と、<br>
+      日々・年ごとに移り変わる「現在の波」があります。
+    </p>
+    <p>
+      この2本の波を重ね合わせることで、<br>
+      「今は動く時か、待つ時か、準備の時か」が見えてきます。
+    </p>
+    <p class="policy-note">
+      波動鑑定士は、未来を断定する占いではありません。<br>
+      今の自分の位置とタイミングを考えるための鑑定メソッドです。
+    </p>
+  </section>
+
+  <section class="check-form" id="check">
+    <h2>無料・簡易波動チェック</h2>
+    <p class="note">
+      生年月日と、今いちばん気になっているテーマを教えてください。<br>
+      あなたの「現在の波」を簡易診断します。
+    </p>
+
+    <form id="waveForm" novalidate>
+      <div class="field">
+        <label for="birthdate">生年月日</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+      </div>
+
+      <div class="field">
+        <label for="theme">今、気になっているテーマ</label>
+        <select id="theme" name="theme" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="work">仕事</option>
+          <option value="money">お金</option>
+          <option value="love">恋愛・結婚</option>
+          <option value="relationship">人間関係</option>
+          <option value="independence">独立・起業</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>入力内容はこの画面での簡易診断表示のみに使用し、送信・保存は行われません。</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">波動をチェックする</button>
+    </form>
+
+    <p class="error" id="formError" role="alert" hidden>生年月日の入力とチェック欄の同意をお願いします。</p>
+  </section>
+
+  <section class="result" id="result" hidden aria-live="polite">
+    <p class="result-eyebrow">あなたは現在</p>
+    <h2 id="resultType">—</h2>
+    <p class="result-eyebrow">の影響が強く出ています</p>
+    <p id="resultDesc" class="result-desc"></p>
+    <p id="resultTheme" class="result-theme"></p>
+
+    <p class="disclaimer">
+      これは簡易診断です。未来を断定するものではなく、あくまで現在地を考えるための目安としてご活用ください。<br>
+      「人生の大きな波」と「現在の波」を重ねた本格鑑定は、LINEでご案内しています。
+    </p>
+
+    <a class="btn btn-line" id="lineCtaResult" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
+      LINEで本鑑定を見る・友だち追加
+    </a>
+  </section>
+
+  <section class="steps">
+    <h2>波動鑑定士の商品案内</h2>
+    <ol class="step-list">
+      <li>
+        <span class="step-price">無料</span>
+        <span class="step-title">LINE内・簡易波動チェック</span>
+        <span class="step-desc">生年月日と気になるテーマから、現在の波動タイプを簡易診断</span>
+      </li>
+      <li>
+        <span class="step-price">5,000円</span>
+        <span class="step-title">波動本鑑定</span>
+        <span class="step-desc">大波動+1年間の現在波動+2本を重ねたグラフ+鑑定書PDF</span>
+      </li>
+      <li>
+        <span class="step-price">29,800円</span>
+        <span class="step-title">波動本鑑定+ストーン</span>
+        <span class="step-desc">本鑑定を受けた方限定。テーマに合わせたお守りとしてのストーンをご提案</span>
+      </li>
+    </ol>
+    <p class="steps-more"><a href="plans.html">プランの詳細を見る →</a></p>
+  </section>
+</main>
+
+<footer>
+  <a class="btn btn-line btn-block" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
+    今すぐLINEで波動鑑定士とつながる
+  </a>
+  <p class="copyright">🌊 波動鑑定士</p>
+</footer>
+
+<!-- ===== 特定商取引法に基づく表記 ===== -->
+<section class="legal-notice" id="tokushoho">
+  <details class="legal-details">
+    <summary>特定商取引法に基づく表記</summary>
+    <dl class="legal-list">
+      <div class="legal-row">
+        <dt>販売事業者</dt>
+        <dd>運命発見鑑定士 長尾頼昭(運営統括責任者)</dd>
+      </div>
+      <div class="legal-row">
+        <dt>所在地</dt>
+        <dd>〒107-0062 東京都港区南青山3丁目1番36号 青山丸竹ビル6F</dd>
+      </div>
+      <div class="legal-row">
+        <dt>運営統括責任者</dt>
+        <dd>長尾 頼昭</dd>
+      </div>
+      <div class="legal-row">
+        <dt>電話番号</dt>
+        <dd>請求があった場合に遅滞なく開示いたします。</dd>
+      </div>
+      <div class="legal-row">
+        <dt>メールアドレス</dt>
+        <dd>ardeur3695@gmail.com</dd>
+      </div>
+      <div class="legal-row">
+        <dt>販売価格</dt>
+        <dd>各商品ページに記載(表示価格は消費税込み)</dd>
+      </div>
+      <div class="legal-row">
+        <dt>商品代金以外の必要料金</dt>
+        <dd>銀行振込手数料(振込の場合)、インターネット接続料金その他の通信料金はお客様のご負担となります。</dd>
+      </div>
+      <div class="legal-row">
+        <dt>お支払い方法</dt>
+        <dd>クレジットカード決済、銀行振込 など</dd>
+      </div>
+      <div class="legal-row">
+        <dt>引渡し時期</dt>
+        <dd>決済完了後、または個別鑑定・ストーンの手配完了後、準備でき次第順次提供いたします。</dd>
+      </div>
+      <div class="legal-row">
+        <dt>返品・キャンセルについて</dt>
+        <dd>デジタルコンテンツおよびオーダーメイドの個別鑑定・ストーンの性質上、購入後のキャンセル・返品・返金はお受けしておりません。</dd>
+      </div>
+    </dl>
+  </details>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

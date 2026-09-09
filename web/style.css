@@ -1,0 +1,375 @@
+:root {
+  --color-bg-deep: #14103a;
+  --color-bg-mid: #241a5e;
+  --color-gold: #d9b45c;
+  --color-gold-light: #f0d896;
+  --color-text: #f4f1ff;
+  --color-text-dim: #c8c2ea;
+  --color-line: #06c755;
+  --color-card: rgba(255, 255, 255, 0.06);
+  --color-card-border: rgba(217, 180, 92, 0.35);
+  --radius: 16px;
+  --max-width: 480px;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  background: var(--color-bg-deep);
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  background: linear-gradient(160deg, var(--color-bg-mid) 0%, var(--color-bg-deep) 70%);
+  padding: 56px 24px 72px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  color: var(--color-gold-light);
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.hero .lead {
+  color: var(--color-text-dim);
+  margin: 0 0 28px;
+  font-size: 1rem;
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  fill: var(--color-bg-deep);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+  color: #221a4d;
+}
+
+.btn-line {
+  background: var(--color-line);
+  color: #fff;
+}
+
+/* ---------- Sections (shared) ---------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.intro p {
+  text-align: center;
+  color: var(--color-text-dim);
+  margin: 0 0 16px;
+}
+
+.policy-note {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  text-align: center;
+  border-top: 1px dashed var(--color-card-border);
+  padding-top: 16px;
+}
+
+/* ---------- Form ---------- */
+
+.check-form .note {
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.field {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+}
+
+input[type="date"],
+select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--color-card-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
+  font-size: 1rem;
+  width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+  margin: 20px 0;
+}
+
+.consent input {
+  margin-top: 3px;
+}
+
+.error {
+  color: #ff9d9d;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+/* ---------- Result ---------- */
+
+.result {
+  text-align: center;
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius);
+  padding: 32px 20px;
+}
+
+.result-eyebrow {
+  margin: 0;
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+}
+
+#resultType {
+  margin: 4px 0;
+  font-size: 2rem;
+  color: var(--color-gold-light);
+}
+
+.result-desc {
+  color: var(--color-text);
+  margin: 16px 0;
+}
+
+.result-theme {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  margin: 20px 0 24px;
+  text-align: left;
+}
+
+/* ---------- Product steps ---------- */
+
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-list li {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-price {
+  color: var(--color-gold-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.step-title {
+  font-weight: 600;
+}
+
+.step-desc {
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+}
+
+.steps-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.steps-more a {
+  color: var(--color-gold-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(217, 180, 92, 0.4);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  text-align: center;
+}
+
+.copyright {
+  margin-top: 16px;
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+}
+
+/* ---------- Legal Notice (特定商取引法に基づく表記) ---------- */
+
+.legal-notice {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.legal-details {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.legal-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  list-style: none;
+  color: var(--color-text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legal-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-details summary::after {
+  content: "+";
+  color: var(--color-gold-light);
+  font-size: 1.1rem;
+  margin-left: 12px;
+  transition: transform 0.2s ease;
+}
+
+.legal-details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.legal-list {
+  margin: 16px 0 0;
+  border-top: 1px dashed var(--color-card-border);
+  padding-top: 16px;
+}
+
+.legal-row {
+  padding: 8px 0;
+  font-size: 0.8rem;
+}
+
+.legal-row + .legal-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.legal-row dt {
+  color: var(--color-gold-light);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.legal-row dd {
+  margin: 0;
+  color: var(--color-text-dim);
+}
+
+/* ---------- Dark/light aware (page is intentionally single dark theme) ---------- */
