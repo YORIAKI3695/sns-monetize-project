@@ -560,7 +560,8 @@ section h2 {
 }
 
 .plan-certificate {
-  margin: 0 -24px 10px;
+  width: 62%;
+  margin: 0 auto 10px;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 20px 40px -18px rgba(217, 180, 92, 0.5);
