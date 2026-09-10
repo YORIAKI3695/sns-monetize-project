@@ -50,6 +50,7 @@ const THEME_LABELS = {
   love: "恋愛・結婚",
   relationship: "人間関係",
   independence: "独立・起業",
+  health: "健康",
   other: "その他",
 };
 
