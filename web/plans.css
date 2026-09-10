@@ -550,6 +550,36 @@ section h2 {
   transform: scale(1.04);
 }
 
+.plan-certificate-label {
+  text-align: center;
+  color: var(--color-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.plan-certificate {
+  margin: 0 -24px 10px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -18px rgba(217, 180, 92, 0.5);
+}
+
+.plan-certificate img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.plan-certificate-caption {
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+  margin: 0 0 20px;
+}
+
 .plan-stone-copy {
   text-align: center;
   color: var(--color-gold-light);
