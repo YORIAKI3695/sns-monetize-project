@@ -2,7 +2,7 @@
  * 波動鑑定士 - 無料簡易波動チェック
  *
  * ⚠️ このファイルの判定ロジックはマーケティング用の簡易プレースホルダーです。
- * 「現在波動」を数秘術の個人年(生年月日+対象年から算出する1桁の数)をもとに
+ * 「現在波動」を数秘術の個人年(生年月日+氏名の画数+対象年から算出する1桁の数)をもとに
  * 6タイプへ仮マッピングしているだけで、正式な波動スコア算出ロジックではありません。
  * 正式ロジックは obsidian-vault/04_Wave_Calculation/鑑定ロジック設計書.md で
  * 検証・確定させ、確定後にこのファイルの calcPersonalYear() / pickWaveType() を
@@ -69,11 +69,11 @@ function reduceToSingleDigit(n) {
 }
 
 /** 数秘術の個人年(パーソナルイヤー)風の簡易計算。1〜9の値を返す。 */
-function calcPersonalYear(birthdateStr, targetYear) {
+function calcPersonalYear(birthdateStr, targetYear, nameStrokes) {
   const date = new Date(birthdateStr);
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  const raw = digitSum(month) + digitSum(day) + digitSum(targetYear);
+  const raw = digitSum(month) + digitSum(day) + digitSum(targetYear) + digitSum(nameStrokes);
   return reduceToSingleDigit(raw);
 }
 
@@ -111,17 +111,18 @@ function initForm() {
     event.preventDefault();
 
     const birthdate = document.getElementById("birthdate").value;
+    const nameStrokes = document.getElementById("nameStrokes").value;
     const theme = document.getElementById("theme").value;
     const consent = document.getElementById("consent").checked;
 
-    if (!birthdate || !theme || !consent) {
+    if (!birthdate || !nameStrokes || !theme || !consent) {
       errorEl.hidden = false;
       return;
     }
     errorEl.hidden = true;
 
     const targetYear = new Date().getFullYear();
-    const personalYear = calcPersonalYear(birthdate, targetYear);
+    const personalYear = calcPersonalYear(birthdate, targetYear, Number(nameStrokes));
     const waveType = pickWaveType(personalYear);
 
     showResult(waveType, theme);
