@@ -278,6 +278,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 0.85rem;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .steps-more {
   text-align: center;
   margin-top: 20px;
