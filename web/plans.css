@@ -646,7 +646,16 @@ section h2 {
 .plan-name {
   text-align: center;
   font-size: 1.25rem;
-  margin-bottom: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.plan-tagline-sub {
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin: 0 0 18px;
 }
 
 .plan-price {
