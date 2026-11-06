@@ -169,28 +169,7 @@
             ※鑑定書イメージと実際の鑑定書につきましては多少異なる部分がございますので予めご了承願います。
           </p>
 
-          <div class="pay-select" role="radiogroup" aria-labelledby="pay-title-5000">
-            <p class="pay-title" id="pay-title-5000">お支払い方法を選ぶ</p>
-
-            <input class="pay-radio pay-radio-card" type="radio" name="pay-5000" id="pay-5000-card">
-            <label class="pay-option" for="pay-5000-card">カード決済</label>
-            <input class="pay-radio pay-radio-bank" type="radio" name="pay-5000" id="pay-5000-bank">
-            <label class="pay-option" for="pay-5000-bank">銀行振込</label>
-
-            <div class="pay-panel pay-panel-card">
-              <a class="btn btn-outline btn-block" href="https://ardeurchoubi.stores.jp/online_payment/b353d352-3330-43bc-8290-2b6cce9a5c4a" target="_blank" rel="noopener">
-                STORESの請求書決済で支払う
-              </a>
-            </div>
-            <div class="pay-panel pay-panel-bank">
-              <p class="pay-bank-title">お振込先</p>
-              <div data-bank-info>
-                <p class="pay-bank-pending">振込先は現在準備中です。</p>
-              </div>
-            </div>
-          </div>
-
-          <a class="btn btn-primary btn-block" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
+          <a class="btn btn-primary btn-block" data-apply-plan="basic" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
             本鑑定をLINEで申し込む
           </a>
         </article>
@@ -229,28 +208,7 @@
             ご案内が終了した際は、何卒ご容赦<span class="nowrap">願います。</span>
           </p>
 
-          <div class="pay-select" role="radiogroup" aria-labelledby="pay-title-29800">
-            <p class="pay-title" id="pay-title-29800">お支払い方法を選ぶ</p>
-
-            <input class="pay-radio pay-radio-card" type="radio" name="pay-29800" id="pay-29800-card">
-            <label class="pay-option" for="pay-29800-card">カード決済</label>
-            <input class="pay-radio pay-radio-bank" type="radio" name="pay-29800" id="pay-29800-bank">
-            <label class="pay-option" for="pay-29800-bank">銀行振込</label>
-
-            <div class="pay-panel pay-panel-card">
-              <a class="btn btn-outline btn-block" href="https://ardeurchoubi.stores.jp/online_payment/995f8d0d-54d0-4c5c-a1ab-845d2f402d40" target="_blank" rel="noopener">
-                STORESの請求書決済で支払う
-              </a>
-            </div>
-            <div class="pay-panel pay-panel-bank">
-              <p class="pay-bank-title">お振込先</p>
-              <div data-bank-info>
-                <p class="pay-bank-pending">振込先は現在準備中です。</p>
-              </div>
-            </div>
-          </div>
-
-          <a class="btn btn-line btn-block" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
+          <a class="btn btn-line btn-block" data-apply-plan="stone" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
             LINEで相談・申し込む
           </a>
         </article>
@@ -365,8 +323,113 @@
   </div>
 </section>
 
+<!-- ===== お申し込みの案内画面(ポップアップ) ===== -->
+<dialog class="apply-dialog" id="apply-dialog" aria-labelledby="apply-title">
+  <button type="button" class="apply-close" aria-label="閉じる">×</button>
+  <p class="plan-step">お申し込み</p>
+  <h3 class="plan-name" id="apply-title"></h3>
+  <p class="apply-price" id="apply-price"></p>
+
+  <form class="pay-select">
+    <p class="pay-title">① お支払い方法を選ぶ</p>
+
+    <input class="pay-radio pay-radio-card" type="radio" name="pay" id="pay-card" data-label="カード決済">
+    <label class="pay-option" for="pay-card">カード決済</label>
+    <input class="pay-radio pay-radio-bank" type="radio" name="pay" id="pay-bank" data-label="銀行振込">
+    <label class="pay-option" for="pay-bank">銀行振込</label>
+
+    <p class="pay-title apply-reveal">② お支払いのご案内</p>
+    <div class="pay-panel pay-panel-card">
+      <a class="btn btn-outline btn-block" id="apply-stores-link" href="#" target="_blank" rel="noopener">
+        STORESの請求書決済で<span class="nowrap">支払う</span>
+      </a>
+      <p class="apply-note">支払い画面は別のタブで開きます。この画面はそのまま残ります。</p>
+    </div>
+    <div class="pay-panel pay-panel-bank">
+      <p class="pay-bank-title">お振込先</p>
+      <div data-bank-info>
+        <p class="pay-bank-pending">振込先は現在準備中です。</p>
+      </div>
+    </div>
+
+    <div class="apply-reveal">
+      <p class="pay-title">③ お客さま情報を入力する</p>
+
+      <div class="apply-field">
+        <label for="apply-name">お名前<span class="apply-required">必須</span></label>
+        <input type="text" id="apply-name" data-label="お名前" autocomplete="name" maxlength="50" required>
+      </div>
+      <div class="apply-field">
+        <label for="apply-birthdate">生年月日<span class="apply-required">必須</span></label>
+        <input type="date" id="apply-birthdate" data-label="生年月日" min="1900-01-01" autocomplete="bday" required>
+      </div>
+      <div class="apply-field">
+        <label for="apply-birthtime">出生時間(わからない場合は空欄)</label>
+        <input type="time" id="apply-birthtime" data-label="出生時間">
+      </div>
+      <div class="apply-field">
+        <label for="apply-birthplace">出生地(わかる範囲で)</label>
+        <input type="text" id="apply-birthplace" data-label="出生地" placeholder="例: 東京都港区" maxlength="50">
+      </div>
+      <div class="apply-field">
+        <label for="apply-email">メールアドレス<span class="apply-required">必須</span></label>
+        <input type="email" id="apply-email" data-label="メールアドレス" autocomplete="email" maxlength="100" required>
+      </div>
+      <div class="apply-field">
+        <label for="apply-theme">気になるテーマ<span class="apply-required">必須</span></label>
+        <select id="apply-theme" data-label="気になるテーマ" required>
+          <option value="" selected disabled>選択してください</option>
+          <option>仕事</option>
+          <option>お金</option>
+          <option>恋愛・結婚</option>
+          <option>人間関係</option>
+          <option>独立・起業</option>
+          <option>健康</option>
+          <option>その他</option>
+        </select>
+      </div>
+
+      <fieldset class="apply-delivery" id="apply-delivery" hidden disabled>
+        <legend class="pay-title">ストーンのお届け先</legend>
+        <div class="apply-field">
+          <label for="apply-postal">郵便番号<span class="apply-required">必須</span></label>
+          <input type="text" id="apply-postal" data-label="郵便番号" inputmode="numeric" autocomplete="postal-code" placeholder="例: 107-0062" maxlength="10" required>
+        </div>
+        <div class="apply-field">
+          <label for="apply-address">ご住所<span class="apply-required">必須</span></label>
+          <input type="text" id="apply-address" data-label="ご住所" autocomplete="street-address" maxlength="120" required>
+        </div>
+        <div class="apply-field">
+          <label for="apply-tel">電話番号<span class="apply-required">必須</span></label>
+          <input type="tel" id="apply-tel" data-label="電話番号" autocomplete="tel" maxlength="20" required>
+        </div>
+        <div class="apply-field">
+          <label for="apply-wrist">手首まわりのサイズ(わかる範囲で)</label>
+          <input type="text" id="apply-wrist" data-label="手首まわり" placeholder="例: 15cm" maxlength="20">
+        </div>
+      </fieldset>
+
+      <div class="apply-field">
+        <label for="apply-message">ご相談・ご質問(任意)</label>
+        <textarea id="apply-message" data-label="ご相談・ご質問" rows="3" maxlength="300"></textarea>
+      </div>
+
+      <p class="pay-title">④ LINEで送る</p>
+      <button type="submit" class="btn btn-line btn-block">LINEで送る</button>
+      <p class="apply-note">LINEが開き、入力内容がメッセージ欄に入ります。内容を確かめて送信してください。入力内容はこのページには保存されません。</p>
+      <p class="apply-note">
+        パソコンの方は自動で入らないため、
+        <button type="button" class="apply-copy" id="apply-copy">入力内容をコピー</button>
+        してLINEに貼り付けてください。
+      </p>
+      <p class="apply-note apply-copy-status" id="apply-copy-status" role="status"></p>
+    </div>
+  </form>
+</dialog>
+
 <!-- 口座情報は bank-info.js に書きます。このHTMLには書きません。 -->
 <script src="bank-info.js"></script>
+<script src="apply.js"></script>
 <script>
   (function () {
     var info = window.BANK_INFO || {};

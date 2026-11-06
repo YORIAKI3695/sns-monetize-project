@@ -850,6 +850,167 @@ section h2 {
   overflow-wrap: anywhere;
 }
 
+/* ---------- Apply Dialog ---------- */
+
+body.apply-open {
+  overflow: hidden;
+}
+
+.apply-dialog {
+  width: min(560px, calc(100% - 24px));
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  padding: 20px 24px 28px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-bg-soft);
+  border: 1px solid rgba(217, 180, 92, 0.5);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+}
+
+.apply-dialog::backdrop {
+  background: rgba(18, 13, 51, 0.8);
+}
+
+.apply-close {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 -8px -40px auto;
+  padding: 0;
+  background: var(--color-bg-mid);
+  border: 1px solid var(--color-card-border);
+  border-radius: 50%;
+  color: var(--color-gold-light);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.apply-dialog .plan-name {
+  font-size: 1rem;
+  padding: 0 24px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.apply-price {
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  margin: 0 0 20px;
+}
+
+.apply-dialog .pay-select {
+  margin: 0;
+}
+
+.apply-dialog .pay-title {
+  font-size: 0.85rem;
+}
+
+.apply-reveal {
+  display: none;
+  grid-column: 1 / -1;
+}
+
+.pay-radio:checked ~ .apply-reveal {
+  display: block;
+}
+
+div.apply-reveal > .pay-title {
+  margin: 8px 0 12px;
+}
+
+.apply-field {
+  margin: 0 0 14px;
+}
+
+.apply-field label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.apply-required {
+  margin-left: 8px;
+  color: var(--color-gold-light);
+  font-size: 0.7rem;
+}
+
+/* iPhoneで入力時に画面が拡大されないよう、文字は16px(1rem)以上にする */
+.apply-field input,
+.apply-field select,
+.apply-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  color-scheme: dark;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.apply-field input:focus,
+.apply-field select:focus,
+.apply-field textarea:focus {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 1px;
+}
+
+.apply-field select option {
+  background: var(--color-bg-soft);
+}
+
+.apply-delivery {
+  min-width: 0;
+  margin: 18px 0;
+  padding: 14px 14px 0;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+}
+
+.apply-delivery .pay-title {
+  padding: 0 8px;
+}
+
+.apply-note {
+  margin: 10px 0 0;
+  color: var(--color-text-dim);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.apply-copy {
+  padding: 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-gold-light);
+  color: var(--color-gold-light);
+  font: inherit;
+  cursor: pointer;
+}
+
+.apply-copy-status {
+  color: var(--color-gold-light);
+}
+
+.apply-copy-status:empty {
+  display: none;
+}
+
 /* ---------- FAQ ---------- */
 
 .faq {
