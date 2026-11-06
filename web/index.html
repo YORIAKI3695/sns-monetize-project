@@ -151,7 +151,7 @@
       </div>
       <div class="legal-row">
         <dt>電話番号</dt>
-        <dd>請求があった場合に遅滞なく開示いたします。</dd>
+        <dd data-contact-phone>請求があった場合に遅滞なく開示いたします。</dd>
       </div>
       <div class="legal-row">
         <dt>メールアドレス</dt>
@@ -189,6 +189,18 @@
   </details>
 </section>
 
+<!-- 電話番号は contact-info.js に書きます。このHTMLには書きません。 -->
+<script src="contact-info.js"></script>
+<script>
+  (function () {
+    var phone = (window.CONTACT_INFO || {}).phone;
+    var target = document.querySelector("[data-contact-phone]");
+    // 未記入のあいだは、今までの文章をそのまま表示する
+    if (target && typeof phone === "string" && phone.trim() !== "" && phone.trim() !== "ここに書く") {
+      target.textContent = phone.trim();
+    }
+  })();
+</script>
 <script src="script.js"></script>
 </body>
 </html>

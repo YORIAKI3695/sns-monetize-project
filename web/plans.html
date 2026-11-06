@@ -284,7 +284,7 @@
         </div>
         <div class="legal-row">
           <dt>電話番号</dt>
-          <dd>請求があった場合に遅滞なく開示いたします。</dd>
+          <dd data-contact-phone>請求があった場合に遅滞なく開示いたします。</dd>
         </div>
         <div class="legal-row">
           <dt>メールアドレス</dt>
@@ -428,6 +428,18 @@
   </form>
 </dialog>
 
+<!-- 電話番号は contact-info.js に書きます。このHTMLには書きません。 -->
+<script src="contact-info.js"></script>
+<script>
+  (function () {
+    var phone = (window.CONTACT_INFO || {}).phone;
+    var target = document.querySelector("[data-contact-phone]");
+    // 未記入のあいだは、今までの文章をそのまま表示する
+    if (target && typeof phone === "string" && phone.trim() !== "" && phone.trim() !== "ここに書く") {
+      target.textContent = phone.trim();
+    }
+  })();
+</script>
 <!-- 口座情報は bank-info.js に書きます。このHTMLには書きません。 -->
 <script src="bank-info.js"></script>
 <script src="apply.js"></script>
@@ -437,14 +449,14 @@
     var rows = [
       ["銀行名", info.bankName],
       ["支店名", info.branchName],
-      ["口座種別", info.accountType],
+      ["口座の種類", info.accountType],
       ["口座番号", info.accountNumber],
       ["口座名義", info.accountHolder]
     ];
 
-    // 1項目でも欠けていれば「準備中」のままにする(不完全な口座を見せない)
+    // 1項目でも未記入なら「準備中」のままにする(不完全な口座を見せない)
     var isComplete = rows.every(function (row) {
-      return typeof row[1] === "string" && row[1].trim() !== "";
+      return typeof row[1] === "string" && row[1].trim() !== "" && row[1].trim() !== "ここに書く";
     });
     if (!isComplete) return;
 
@@ -462,7 +474,10 @@
         wrap.appendChild(value);
         list.appendChild(wrap);
       });
-      box.replaceChildren(list);
+      var note = document.createElement("p");
+      note.className = "apply-note";
+      note.textContent = "ご入金の確認がとれ次第、鑑定を進めます。";
+      box.replaceChildren(list, note);
     });
   })();
 </script>
