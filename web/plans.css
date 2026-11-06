@@ -928,6 +928,13 @@ div.apply-reveal > .pay-title {
   margin: 8px 0 12px;
 }
 
+.apply-lead {
+  margin: 0 0 14px;
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
 .apply-field {
   margin: 0 0 14px;
 }
@@ -961,6 +968,21 @@ div.apply-reveal > .pay-title {
   color-scheme: dark;
   font: inherit;
   font-size: 1rem;
+}
+
+/* iPhoneのSafariは日付・時間の欄を独自の幅で描くため、他の欄と同じ幅に戻す */
+.apply-field input[type="date"],
+.apply-field input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.apply-field input::-webkit-date-and-time-value {
+  min-width: 0;
+  margin: 0;
+  text-align: left;
 }
 
 .apply-field input:focus,
