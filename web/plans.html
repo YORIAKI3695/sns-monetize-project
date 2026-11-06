@@ -169,6 +169,27 @@
             ※鑑定書イメージと実際の鑑定書につきましては多少異なる部分がございますので予めご了承願います。
           </p>
 
+          <div class="pay-select" role="radiogroup" aria-labelledby="pay-title-5000">
+            <p class="pay-title" id="pay-title-5000">お支払い方法を選ぶ</p>
+
+            <input class="pay-radio pay-radio-card" type="radio" name="pay-5000" id="pay-5000-card">
+            <label class="pay-option" for="pay-5000-card">カード決済</label>
+            <input class="pay-radio pay-radio-bank" type="radio" name="pay-5000" id="pay-5000-bank">
+            <label class="pay-option" for="pay-5000-bank">銀行振込</label>
+
+            <div class="pay-panel pay-panel-card">
+              <a class="btn btn-outline btn-block" href="https://ardeurchoubi.stores.jp/online_payment/b353d352-3330-43bc-8290-2b6cce9a5c4a" target="_blank" rel="noopener">
+                STORESの請求書決済で支払う
+              </a>
+            </div>
+            <div class="pay-panel pay-panel-bank">
+              <p class="pay-bank-title">お振込先</p>
+              <div data-bank-info>
+                <p class="pay-bank-pending">振込先は現在準備中です。</p>
+              </div>
+            </div>
+          </div>
+
           <a class="btn btn-primary btn-block" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
             本鑑定をLINEで申し込む
           </a>
@@ -207,6 +228,27 @@
             月にご案内できる数量には限りが<span class="nowrap">ございます。</span><br>
             ご案内が終了した際は、何卒ご容赦<span class="nowrap">願います。</span>
           </p>
+
+          <div class="pay-select" role="radiogroup" aria-labelledby="pay-title-29800">
+            <p class="pay-title" id="pay-title-29800">お支払い方法を選ぶ</p>
+
+            <input class="pay-radio pay-radio-card" type="radio" name="pay-29800" id="pay-29800-card">
+            <label class="pay-option" for="pay-29800-card">カード決済</label>
+            <input class="pay-radio pay-radio-bank" type="radio" name="pay-29800" id="pay-29800-bank">
+            <label class="pay-option" for="pay-29800-bank">銀行振込</label>
+
+            <div class="pay-panel pay-panel-card">
+              <a class="btn btn-outline btn-block" href="https://ardeurchoubi.stores.jp/online_payment/995f8d0d-54d0-4c5c-a1ab-845d2f402d40" target="_blank" rel="noopener">
+                STORESの請求書決済で支払う
+              </a>
+            </div>
+            <div class="pay-panel pay-panel-bank">
+              <p class="pay-bank-title">お振込先</p>
+              <div data-bank-info>
+                <p class="pay-bank-pending">振込先は現在準備中です。</p>
+              </div>
+            </div>
+          </div>
 
           <a class="btn btn-line btn-block" href="https://lin.ee/XP9l7Ii" target="_blank" rel="noopener">
             LINEで相談・申し込む
@@ -322,6 +364,44 @@
     </details>
   </div>
 </section>
+
+<!-- 口座情報は bank-info.js に書きます。このHTMLには書きません。 -->
+<script src="bank-info.js"></script>
+<script>
+  (function () {
+    var info = window.BANK_INFO || {};
+    var rows = [
+      ["銀行名", info.bankName],
+      ["支店名", info.branchName],
+      ["口座種別", info.accountType],
+      ["口座番号", info.accountNumber],
+      ["口座名義", info.accountHolder]
+    ];
+
+    // 1項目でも欠けていれば「準備中」のままにする(不完全な口座を見せない)
+    var isComplete = rows.every(function (row) {
+      return typeof row[1] === "string" && row[1].trim() !== "";
+    });
+    if (!isComplete) return;
+
+    document.querySelectorAll("[data-bank-info]").forEach(function (box) {
+      var list = document.createElement("dl");
+      list.className = "pay-bank-list";
+      rows.forEach(function (row) {
+        var wrap = document.createElement("div");
+        wrap.className = "pay-bank-row";
+        var label = document.createElement("dt");
+        label.textContent = row[0];
+        var value = document.createElement("dd");
+        value.textContent = row[1].trim();
+        wrap.appendChild(label);
+        wrap.appendChild(value);
+        list.appendChild(wrap);
+      });
+      box.replaceChildren(list);
+    });
+  })();
+</script>
 
 </body>
 </html>

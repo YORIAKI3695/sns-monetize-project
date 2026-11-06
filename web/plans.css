@@ -721,6 +721,135 @@ section h2 {
   margin: 0;
 }
 
+/* ---------- Payment Select ---------- */
+
+.pay-select {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.pay-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* 丸印は label 側で描くので、本物のラジオは見えなくする(キーボード操作は残す) */
+.pay-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+}
+
+.pay-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 8px;
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.pay-option::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+}
+
+.pay-radio:checked + .pay-option {
+  background: rgba(217, 180, 92, 0.12);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+.pay-radio:checked + .pay-option::before {
+  background: radial-gradient(circle, var(--color-gold-light) 0 45%, transparent 50%);
+}
+
+.pay-radio:focus-visible + .pay-option {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
+}
+
+.pay-panel {
+  display: none;
+  grid-column: 1 / -1;
+}
+
+.pay-radio-card:checked ~ .pay-panel-card,
+.pay-radio-bank:checked ~ .pay-panel-bank {
+  display: block;
+}
+
+.pay-panel-bank {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.pay-bank-title {
+  text-align: center;
+  color: var(--color-gold-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.pay-bank-pending {
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.pay-bank-list {
+  margin: 0;
+}
+
+.pay-bank-row {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.82rem;
+}
+
+.pay-bank-row + .pay-bank-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pay-bank-row dt {
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.pay-bank-row dd {
+  margin: 0;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
 /* ---------- FAQ ---------- */
 
 .faq {
