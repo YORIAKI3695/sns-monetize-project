@@ -346,10 +346,7 @@
       <p class="apply-note">支払い画面は別のタブで開きます。この画面はそのまま残ります。</p>
     </div>
     <div class="pay-panel pay-panel-bank">
-      <p class="pay-bank-title">お振込先</p>
-      <div data-bank-info>
-        <p class="pay-bank-pending">振込先は現在準備中です。</p>
-      </div>
+      <p class="pay-bank-note">振込先は、LINEでお送りします。このあと送られる申し込みメッセージをお待ちください。</p>
     </div>
 
     <div class="apply-reveal">
@@ -440,47 +437,7 @@
     }
   })();
 </script>
-<!-- 口座情報は bank-info.js に書きます。このHTMLには書きません。 -->
-<script src="bank-info.js"></script>
 <script src="apply.js"></script>
-<script>
-  (function () {
-    var info = window.BANK_INFO || {};
-    var rows = [
-      ["銀行名", info.bankName],
-      ["支店名", info.branchName],
-      ["口座の種類", info.accountType],
-      ["口座番号", info.accountNumber],
-      ["口座名義", info.accountHolder]
-    ];
-
-    // 1項目でも未記入なら「準備中」のままにする(不完全な口座を見せない)
-    var isComplete = rows.every(function (row) {
-      return typeof row[1] === "string" && row[1].trim() !== "" && row[1].trim() !== "ここに書く";
-    });
-    if (!isComplete) return;
-
-    document.querySelectorAll("[data-bank-info]").forEach(function (box) {
-      var list = document.createElement("dl");
-      list.className = "pay-bank-list";
-      rows.forEach(function (row) {
-        var wrap = document.createElement("div");
-        wrap.className = "pay-bank-row";
-        var label = document.createElement("dt");
-        label.textContent = row[0];
-        var value = document.createElement("dd");
-        value.textContent = row[1].trim();
-        wrap.appendChild(label);
-        wrap.appendChild(value);
-        list.appendChild(wrap);
-      });
-      var note = document.createElement("p");
-      note.className = "apply-note";
-      note.textContent = "ご入金の確認がとれ次第、鑑定を進めます。";
-      box.replaceChildren(list, note);
-    });
-  })();
-</script>
 
 </body>
 </html>

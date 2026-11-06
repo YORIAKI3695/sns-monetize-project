@@ -56,13 +56,13 @@
     var payment = form.querySelector('input[name="pay"]:checked');
     var lines = [
       "【お申し込み】" + currentPlan.name + " " + currentPlan.price,
-      "お支払い方法:" + payment.dataset.label
+      "お支払い方法：" + payment.dataset.label
     ];
     Array.prototype.forEach.call(form.querySelectorAll("[data-label]"), function (field) {
       if (field.type === "radio" || field.disabled || field.closest("fieldset:disabled")) return;
       var value = field.value.trim();
       if (!value) return;
-      lines.push(field.dataset.label + ":" + (field.type === "date" ? formatDate(value) : value));
+      lines.push(field.dataset.label + "：" + (field.type === "date" ? formatDate(value) : value));
     });
     return lines.join("\n");
   }

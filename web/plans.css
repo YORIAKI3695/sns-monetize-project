@@ -808,46 +808,11 @@ section h2 {
   padding: 14px 16px;
 }
 
-.pay-bank-title {
-  text-align: center;
-  color: var(--color-gold-light);
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin: 0 0 8px;
-}
-
-.pay-bank-pending {
+.pay-bank-note {
   text-align: center;
   color: var(--color-text-dim);
   font-size: 0.85rem;
   margin: 0;
-}
-
-.pay-bank-list {
-  margin: 0;
-}
-
-.pay-bank-row {
-  display: grid;
-  grid-template-columns: 76px 1fr;
-  gap: 8px;
-  padding: 6px 0;
-  font-size: 0.82rem;
-}
-
-.pay-bank-row + .pay-bank-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.pay-bank-row dt {
-  color: var(--color-gold-light);
-  font-weight: 700;
-}
-
-.pay-bank-row dd {
-  margin: 0;
-  color: var(--color-text);
-  overflow-wrap: anywhere;
 }
 
 /* ---------- Apply Dialog ---------- */
