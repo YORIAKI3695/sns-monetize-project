@@ -42,6 +42,8 @@
     deliveryFields.disabled = !plan.needsDelivery;
     birthdate.max = new Date().toISOString().slice(0, 10);
     copyStatus.textContent = "";
+    // 開くたびに「カード決済」を選び直せるようにして、毎回支払い画面が自動で開くようにする
+    document.getElementById("pay-card").checked = false;
     dialog.showModal();
     dialog.scrollTop = 0;
     document.body.classList.add("apply-open");
