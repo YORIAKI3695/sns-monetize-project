@@ -815,6 +815,13 @@ section h2 {
   margin: 0;
 }
 
+.pay-card-note {
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
 /* ---------- Apply Dialog ---------- */
 
 body.apply-open {

@@ -74,6 +74,12 @@
     });
   });
 
+  // 「カード決済」を選んだ瞬間に、選んだ鑑定のSTORES支払い画面を別のタブで開く。
+  // 開けなかった場合(スマホの設定など)は、画面のボタンから開けるようにしてある。
+  document.getElementById("pay-card").addEventListener("change", function (event) {
+    if (event.target.checked) window.open(currentPlan.storesUrl, "_blank", "noopener");
+  });
+
   dialog.querySelector(".apply-close").addEventListener("click", function () {
     dialog.close();
   });
