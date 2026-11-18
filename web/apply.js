@@ -5,6 +5,7 @@
  */
 (function () {
   var LINE_ID = "@606mmvex";
+  // storesUrl は画面では使いません。お支払い用URLをLINEでお送りするときの控えです。
   var PLANS = {
     basic: {
       name: "運命波本鑑定",
@@ -27,7 +28,6 @@
   var form = dialog.querySelector("form");
   var title = document.getElementById("apply-title");
   var price = document.getElementById("apply-price");
-  var storesLink = document.getElementById("apply-stores-link");
   var deliveryFields = document.getElementById("apply-delivery");
   var birthdate = document.getElementById("apply-birthdate");
   var copyStatus = document.getElementById("apply-copy-status");
@@ -37,13 +37,10 @@
     currentPlan = plan;
     title.textContent = plan.name;
     price.textContent = plan.price;
-    storesLink.href = plan.storesUrl;
     deliveryFields.hidden = !plan.needsDelivery;
     deliveryFields.disabled = !plan.needsDelivery;
     birthdate.max = new Date().toISOString().slice(0, 10);
     copyStatus.textContent = "";
-    // 開くたびに「カード決済」を選び直せるようにして、毎回支払い画面が自動で開くようにする
-    document.getElementById("pay-card").checked = false;
     dialog.showModal();
     dialog.scrollTop = 0;
     document.body.classList.add("apply-open");
@@ -74,12 +71,6 @@
       event.preventDefault();
       open(PLANS[button.dataset.applyPlan]);
     });
-  });
-
-  // 「カード決済」を選んだ瞬間に、選んだ鑑定のSTORES支払い画面を別のタブで開く。
-  // 開けなかった場合(スマホの設定など)は、画面のボタンから開けるようにしてある。
-  document.getElementById("pay-card").addEventListener("change", function (event) {
-    if (event.target.checked) window.open(currentPlan.storesUrl, "_blank", "noopener");
   });
 
   dialog.querySelector(".apply-close").addEventListener("click", function () {
